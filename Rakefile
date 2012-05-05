@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "email2face"
   gem.homepage = "http://github.com/jarred-sumner/email2face"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{You give email2face an email, and it gives you a link to their face }
+  gem.description = %Q{ Email2Face finds an email's corresponding Facebook profile, and then gives you a link to their profile picture. It requires a Facebook account to work. I highly recommend that you make a Facebook just for it. See http://github.com/jarred-sumner/email2face for more details. }
   gem.email = "jarred@jarredsumner.com"
   gem.authors = ["Jarred Sumner"]
   # dependencies defined in Gemfile
