@@ -60,8 +60,7 @@ class Email2Face
   end
 
   def self.login_failed!
-    puts "Couldn't login to Facebook. Maybe you misspelled your username or password?"
-    exit(0)
+    "Couldn't login to Facebook. Maybe you misspelled your username or password?"
   end
 
   def self.get_face(html)
