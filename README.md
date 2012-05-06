@@ -37,7 +37,7 @@ Start off by installing the gem:
 gem install 'email2face'
 ```
 
-Then, we pass in the email, with the Facebook account in a hash:
+Then, we just give Email2Face the email we want a face for:
 
 ```ruby
 require 'email2face'
