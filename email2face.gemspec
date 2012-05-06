@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
+    "email2face.gemspec",
     "lib/email2face.rb",
     "test/helper.rb",
     "test/test_email2face.rb"
