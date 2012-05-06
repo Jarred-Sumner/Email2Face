@@ -62,7 +62,6 @@ DEPENDENCIES
   capybara-webkit
   headless
   jeweler (~> 1.8.3)
-  json
   rdoc (~> 3.12)
   shoulda
   simplecov
