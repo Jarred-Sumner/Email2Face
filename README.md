@@ -45,6 +45,12 @@ Then, we just give Email2Face the email we want a face for:
 require 'email2face'
 Email2Face.face("jarred.sumner@facebook.com")
 ```
+It'll return something like:
+
+```ruby
+http://graph.facebook.com/jarred.sumner/picture
+```
+
 
 ### Changing the Facebook Account
 It's unlikely the included Facebook account will work for long. So, you may need to make a fake Facebook for it. Do not use your own because it's possible that Facebook may ban it.
