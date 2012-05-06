@@ -70,6 +70,7 @@ class Email2Face
     uri       = URI.parse(href)
     uri.host  = "graph.facebook.com"
     uri.path  = uri.path + "/picture"
+    raise if uri.path.include?("profile.php")
     uri.to_s
   rescue
     "I couldn't find a face for that email :("
