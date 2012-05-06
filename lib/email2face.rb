@@ -1,54 +1,45 @@
 require 'capybara/dsl'
 require 'capybara-webkit'
 require 'headless'
-require 'json'
+
+FAKE_FACEBOOK_USERNAME = "anmail@email2face.net"
+FAKE_FACEBOOK_PASSWORD = "thisisapassword"
 
 class Email2Face
-  attr_accessor :username, :password, :verbose
+  # This is why you should make a fake Facebook account.
+  @@username = FAKE_FACEBOOK_USERNAME
+  @@password = FAKE_FACEBOOK_PASSWORD
 
-  def self.filepath
-    "#{ENV["HOME"]}/.sandvich"
+  def self.username
+    @@username
   end
 
-  CHROME_USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.41 Safari/536.5
-"
+  def self.username=(username)
+    @@username = username
+  end
 
-  def self.face(email, options = {}, from_thor = false)
-    user = Email2Face.new
-    if options[:username].nil? || options[:password].nil?
-      user.load_auth_from_disk(options)
-    else
-      user.username = options[:username]
-      user.password = options[:password]
-      user.verbose  = options[:verbose]
+  def self.password
+    @@password
+  end
+
+  def self.password=(password)
+    @@password = password
+  end
+
+  def self.face(email)
+    if @@username == FAKE_FACEBOOK_USERNAME
+      no_login_details(email)
     end
-      if user.username.nil? || user.username == "" || user.password.nil? || user.password == ""
-        user.no_login_details(email)
-      end
-      html = user.face_html(email)
-      return user.face(html)
+    html = face_html(email)
+    return get_face(html)
   end
 
-  def load_auth_from_disk(options)
-    if File.exists?(Email2Face.filepath)
-      json = JSON.parse(File.open(Email2Face.filepath, "r").read) 
-      self.username = json["username"]
-      self.password = json["password"]
-      self.verbose  = options["verbose"]
-    end
+  def self.no_login_details(email)
+    puts "You didn't specify a Facebook account, so I set you up with a fake Facebook account that might not work."
   end
 
-  def no_login_details(email)
-    options = {}
-    options[:username] = 'anmail@email2face.net'
-    options[:password] = 'thisisapassword'
-    puts "You didn't specify a Facebook account, so I set you up with a fake Facebook account that might not work. When it stops working, just open up \"#{Email2Face.filepath}\" and change it there"
-    Email2Face.face(email, options)
-  end
-
-  def face_html(email)
+  def self.face_html(email)
     configure_capybara
-    puts "Logging in..." if self.verbose
     Headless.ly do
       browser = Capybara::Session.new(:webkit, browser)
       #self.driver.header("User-Agent", CHROME_USER_AGENT)
@@ -59,8 +50,6 @@ class Email2Face
         browser.click_button "Log In"
       end
       if browser.driver.cookies["c_user", ".facebook.com"]
-        login_success!
-        puts "Login Successful! Getting Face URL" if self.verbose
         url = "https://www.facebook.com/search/results.php?o=2048&init=s%3Aemail&q=#{ email.sub("@", "%40") }"
         browser.visit url
         return browser.html
@@ -70,30 +59,12 @@ class Email2Face
     end
   end
 
-  def login_success!
-    if File.exists?(Email2Face.filepath)
-      File.delete(Email2Face.filepath)
-    else
-      File.new(Email2Face.filepath, "w") 
-    end
-    File.open(Email2Face.filepath, "w") do |f|
-      f.write(self.to_json)
-    end
-  end
-
-  def to_json
-    hash = Hash.new
-    hash[:username] = self.username
-    hash[:password] = self.password
-    hash.to_json
-  end
-
-  def login_failed!
+  def self.login_failed!
     puts "Couldn't login to Facebook. Maybe you misspelled your username or password?"
     exit(0)
   end
 
-  def face(html)
+  def self.get_face(html)
     parser    = Nokogiri::HTML(html)
     element   = parser.xpath("//*[@id='pagelet_search_results_objects']/div/div/div/div/div[2]/div[1]/a") || parser.xpath('//*[@id="js_0"]')
     href      = element.attribute("href")
@@ -101,11 +72,11 @@ class Email2Face
     uri.host  = "graph.facebook.com"
     uri.path  = uri.path + "/picture"
     uri.to_s
-  rescue Exception
+  rescue
     "I couldn't find a face for that email :("
   end
 
-  def configure_capybara
+  def self.configure_capybara
     Capybara.app = self
     Capybara.javascript_driver = :webkit
     Capybara.current_driver = :webkit

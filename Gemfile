@@ -1,6 +1,5 @@
 source "http://rubygems.org"
 
-gem 'json', :require => 'json'
 gem 'capybara', :require => 'capybara'
 gem 'capybara-webkit', :require => 'capybara/webkit'
 gem 'headless', :require => "headless"

@@ -43,11 +43,23 @@ Then, we just give Email2Face the email we want a face for:
 require 'email2face'
 Email2Face.face("my.email@facebook.com")
 ```
-I've included a fake Facebook by default. However, it could be disabled at any time.
 
-When you want to change the Facebook account, just run
+### Changing the Facebook Account
+It's unlikely the included Facebook account will work for long. So, you may need to make a fake Facebook for it. Do not use your own because it's possible that Facebook may ban it.
+
+#### With Ruby on Rails:
+
+* Create a new file in `config/initializers` called `facebook.rb`
+
+* Open that file in a text editor, and drop in the following:
 
 ```ruby
-require 'email2face'
-Email2Face.face("my.email@facebook.com", { :username => "fb_account@example.com", :password => "fbpassword" })
+Email2Face.username = "FAKE_FACEBOOK_USERNAME"
+Email2Face.password = "FAKE_FACEBOOK_PASSWORD"
 ```
+
+You'll need to restart your application server for it to have any affect.
+
+#### Without Ruby on Rails:
+
+The code above wasn't specific to Ruby on Rails. Just set ```Email2Face.username``` and ```Email2Face.password``` to what you want.
