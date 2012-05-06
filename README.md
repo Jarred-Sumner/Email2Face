@@ -45,11 +45,20 @@ Then, we just give Email2Face the email we want a face for:
 require 'email2face'
 Email2Face.face("jarred.sumner@facebook.com")
 ```
-It'll return something like:
+
+It should return something like:
 
 ```ruby
 http://graph.facebook.com/jarred.sumner/picture
 ```
+
+However, if you get something like this:
+
+```ruby
+"I couldn't find a face for that email :(. It's also possible that Facebook has asked for a security check on that account, which means that you should sign in and perform the security check."
+```
+
+That might mean that Facebook is redirecting all requests to their [checkpoint](https://facebook.com/checkpoint). If it's an account you made, sign in and perform the security check. Otherwise, change it to an account that you know works.
 
 
 ### Changing the Facebook Account
