@@ -32,15 +32,16 @@ $ sudo apt-get install xvfb libqtwebkit4 libqtwebkit4-dev
 
 ## Using it
 
-Start off by adding it to your Gemfile:
+Start off by installing the gem:
 
 ```ruby
-gem 'email2face', :require => 'email2face'
+gem install 'email2face'
 ```
 
 Then, we pass in the email, with the Facebook account in a hash:
 
 ```ruby
+require 'email2face'
 Email2Face.face("the.email.i.use.to.sign.into.facebook@example.com", { :username => "my.fake.facebook@example.com", :password => "123456" })
 ```
 
