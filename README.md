@@ -6,7 +6,7 @@ After thinking about it for awhile, we came up with a good solution. Facebook ha
 
 ## Dependencies & Warnings
 
-It needs a Facebook account to work. I *do not* recommend using your own Facebook because it stores the Facebook account in plaintext. So, make a fake Facebook for it. I've included a default one, but it'll probably be banned by the time you get to it.
+It needs a Facebook account to work. I *do not* recommend using your own Facebook because I'm not sure if this plays well with Facebook's TOS. So, make a fake Facebook for it. I've included a default one, but it'll probably be banned by the time you get to it.
 
 ### Before jumping in
 
