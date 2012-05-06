@@ -10,19 +10,20 @@ It needs a Facebook account to work. I *do not* recommend using your own Faceboo
 
 You need to have Xvfb and QTWebkit installed in order to use this.
 
-To install it on Mac OS X run (with Homebrew):
+#### Install it on Mac OS X:
 
 ```bash
-$ brew install qt4 && wget "http://xquartz.macosforge.org/downloads/SL/XQuartz-2.7.1.dmg" && open "XQuartz-2.7.1.dmg"
+$ brew install qt4
 ```
+Then, download and install (XQuartz)[http://xquartz.macosforge.org/downloads/SL/XQuartz-2.7.1.dmg]
 
-To install it on Arch Linux run:
+#### Install it on Arch Linux:
 
 ```bash
 $ sudo pacman -S xorg-server-xvfb qtwebkit
 ```
 
-To install it on Ubuntu run:
+#### Install it on Ubuntu:
 
 ```bash
 $ sudo apt-get install xvfb libqtwebkit4 libqtwebkit4-dev
@@ -40,6 +41,8 @@ gem install 'email2face'
 
 Then, we pass in the email, with the Facebook account in a hash:
 
+```ruby
+require 'email2face'
 Email2Face.face("the.email.i.use.to.sign.into.facebook@example.com", { :username => "my.fake.facebook@example.com", :password => "123456" })
 ```
 
