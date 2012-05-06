@@ -41,7 +41,7 @@ class Email2Face
   def no_login_details
     puts "Email2Face requires a Facebook account to search for faces. Don't use a Facebook account that matters."
     puts "Usage: Email2Face.face(email, { :username => USERNAME, :password => PASSWORD } )"
-    puts "Afterwards, I'll store thlse Facebook account, so you don't have to do this everytime."
+    puts "Afterwards, I'll store this Facebook account, so you don't have to do this everytime."
     exit(0)
   end
 

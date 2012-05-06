@@ -15,7 +15,7 @@ You need to have Xvfb and QTWebkit installed in order to use this.
 ```bash
 $ brew install qt4
 ```
-Then, download and install [XQuartz](http://xquartz.macosforge.org/downloads/SL/XQuartz-2.7.1.dmg)
+Then, download and install [XQuartz](http://xquartz.macosforge.org/downloads/SL/XQuartz-2.7.1.dmg).
 
 #### Install it on Arch Linux:
 
