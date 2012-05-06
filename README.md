@@ -28,7 +28,7 @@ To install it on Ubuntu run:
 $ sudo apt-get install xvfb libqtwebkit4 libqtwebkit4-dev
 ```
 
-**Make a fake Facebook to use this**
+**You need to make a fake Facebook account to use this!**
 
 ## Using it
 
