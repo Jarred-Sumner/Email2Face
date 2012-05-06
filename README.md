@@ -12,11 +12,11 @@ You need to have Xvfb and QTWebkit installed in order to use this.
 
 To install it on Mac OS X run (with Homebrew):
 
-```brew install qt4```
+```$ brew install qt4```
 
 To install it on Arch Linux run:
 
-```$ sudo pacman -S xserver-xvfb qtwebkit```
+```$ sudo pacman -S xorg-server-xvfb qtwebkit```
 
 To install it on Ubuntu run:
 
