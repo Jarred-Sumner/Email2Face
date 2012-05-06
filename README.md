@@ -13,7 +13,7 @@ You need to have Xvfb and QTWebkit installed in order to use this.
 #### Install it on Mac OS X:
 
 ```bash
-$ brew install qt4
+$ brew install qt
 ```
 Then, download and install [XQuartz](http://xquartz.macosforge.org/downloads/SL/XQuartz-2.7.1.dmg).
 
