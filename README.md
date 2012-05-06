@@ -12,6 +12,7 @@ You need to have Xvfb and QTWebkit installed in order to use this.
 
 To install it on Arch Linux run:
   ```$ sudo pacman -S xserver-xvfb qtwebkit```
+  
 To install it on Ubuntu run:
   ```$ sudo apt-get install xvfb libqtwebkit4 libqtwebkit4-dev```
 
