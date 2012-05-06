@@ -19,7 +19,8 @@ $ brew install qt4
 To install it on Arch Linux run:
 
 ```bash
-$ sudo pacman -S xorg-server-xvfb qtwebkit```
+$ sudo pacman -S xorg-server-xvfb qtwebkit
+```
 
 To install it on Ubuntu run:
 
