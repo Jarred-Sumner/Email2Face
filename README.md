@@ -10,6 +10,10 @@ It needs a Facebook account to work. I *do not* recommend using your own Faceboo
 
 You need to have Xvfb and QTWebkit installed in order to use this.
 
+To install it on Mac OS X run (with Homebrew):
+
+```brew install qt4```
+
 To install it on Arch Linux run:
 
 ```$ sudo pacman -S xserver-xvfb qtwebkit```
