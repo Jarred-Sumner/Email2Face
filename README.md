@@ -11,10 +11,12 @@ It needs a Facebook account to work. I *do not* recommend using your own Faceboo
 You need to have Xvfb and QTWebkit installed in order to use this.
 
 To install it on Arch Linux run:
-  ```$ sudo pacman -S xserver-xvfb qtwebkit```
-  
+
+```$ sudo pacman -S xserver-xvfb qtwebkit```
+
 To install it on Ubuntu run:
-  ```$ sudo apt-get install xvfb libqtwebkit4 libqtwebkit4-dev```
+
+```$ sudo apt-get install xvfb libqtwebkit4 libqtwebkit4-dev```
 
 **Make a fake Facebook to use this**
 
