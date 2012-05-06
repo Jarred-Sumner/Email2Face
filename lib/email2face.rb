@@ -1,3 +1,8 @@
+require 'capybara/dsl'
+require 'capybara-webkit'
+require 'headless'
+require 'json'
+
 class Email2Face
   attr_accessor :username, :password, :verbose
 
@@ -10,12 +15,12 @@ class Email2Face
 
   def self.face(email, options = {}, from_thor = false)
     user = Email2Face.new
-    if options["username"].nil? || options["password"].nil?
+    if options[:username].nil? || options[:password].nil?
       user.load_auth_from_disk(options)
     else
-      user.username = options["username"]
-      user.password = options["password"]
-      user.verbose  = options["verbose"]
+      user.username = options[:username]
+      user.password = options[:password]
+      user.verbose  = options[:verbose]
     end
       if user.username.nil? || user.username == "" || user.password.nil? || user.password == ""
         user.no_login_details
@@ -27,9 +32,9 @@ class Email2Face
   def load_auth_from_disk(options)
     if File.exists?(Email2Face.filepath)
       json = JSON.parse(File.open(Email2Face.filepath, "r").read) 
-      self.username = json["username"]
-      self.password = json["password"]
-      self.verbose  = options["verbose"]
+      self.username = json[:username]
+      self.password = json[:password]
+      self.verbose  = options[:verbose]
     end
   end
 
@@ -73,8 +78,8 @@ class Email2Face
 
   def to_json
     hash = Hash.new
-    hash["username"] = self.username
-    hash["password"] = self.password
+    hash[:username] = self.username
+    hash[:password] = self.password
     hash.to_json
   end
 

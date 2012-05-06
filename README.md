@@ -19,13 +19,13 @@ _Make a fake Facebook to use this, or use the (service version)[http://email2fac
 
 ## Using it
 
-Start off by adding it to your Gemfile
+Start off by adding it to your Gemfile:
 
 > gem 'email2face', :require => 'email2face'
 
-Then, we pass in the email, with the Facebook account
+Then, we pass in the email, with the Facebook account in a hash:
 
-> Email2Face.face("jarred.sumner@facebook.com", { :username => "my.fake.facebook@example.com", :password => "123456" })
+> Email2Face.face("the.email.i.use.to.sign.into.facebook@example.com", { :username => "my.fake.facebook@example.com", :password => "123456" })
 
 You only need to pass in the fake Facebook the first time you run it. Afterwards, it'll store the account details.
 
