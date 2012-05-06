@@ -12,15 +12,20 @@ You need to have Xvfb and QTWebkit installed in order to use this.
 
 To install it on Mac OS X run (with Homebrew):
 
-```$ brew install qt4```
+```bash
+$ brew install qt4
+```
 
 To install it on Arch Linux run:
 
-```$ sudo pacman -S xorg-server-xvfb qtwebkit```
+```bash
+$ sudo pacman -S xorg-server-xvfb qtwebkit```
 
 To install it on Ubuntu run:
 
-```$ sudo apt-get install xvfb libqtwebkit4 libqtwebkit4-dev```
+```bash
+$ sudo apt-get install xvfb libqtwebkit4 libqtwebkit4-dev
+```
 
 **Make a fake Facebook to use this**
 
