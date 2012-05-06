@@ -15,9 +15,6 @@ doc
 # jeweler generated
 pkg
 
-# Stored account
-Sandvich
-
 # Sublime Text 2
 *.sublime-project
 *.sublime-workspace

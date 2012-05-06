@@ -7,7 +7,7 @@ class Email2Face
   attr_accessor :username, :password, :verbose
 
   def self.filepath
-    "Sandvich"
+    "#{ENV["HOME"]}/.sandvich"
   end
 
   CHROME_USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.41 Safari/536.5
@@ -23,7 +23,7 @@ class Email2Face
       user.verbose  = options[:verbose]
     end
       if user.username.nil? || user.username == "" || user.password.nil? || user.password == ""
-        user.no_login_details
+        user.no_login_details(email)
       end
       html = user.face_html(email)
       return user.face(html)
@@ -32,17 +32,18 @@ class Email2Face
   def load_auth_from_disk(options)
     if File.exists?(Email2Face.filepath)
       json = JSON.parse(File.open(Email2Face.filepath, "r").read) 
-      self.username = json[:username]
-      self.password = json[:password]
-      self.verbose  = options[:verbose]
+      self.username = json["username"]
+      self.password = json["password"]
+      self.verbose  = options["verbose"]
     end
   end
 
-  def no_login_details
-    puts "Email2Face requires a Facebook account to search for faces. Don't use a Facebook account that matters."
-    puts "Usage: Email2Face.face(email, { :username => USERNAME, :password => PASSWORD } )"
-    puts "Afterwards, I'll store this Facebook account, so you don't have to do this everytime."
-    exit(0)
+  def no_login_details(email)
+    options = {}
+    options[:username] = 'anmail@email2face.net'
+    options[:password] = 'thisisapassword'
+    puts "You didn't specify a Facebook account, so I set you up with a fake Facebook account that might not work. When it stops working, just open up \"#{Email2Face.filepath}\" and change it there"
+    Email2Face.face(email, options)
   end
 
   def face_html(email)
@@ -70,7 +71,11 @@ class Email2Face
   end
 
   def login_success!
-    File.new(Email2Face.filepath, "w") unless File.exists?(Email2Face.filepath)
+    if File.exists?(Email2Face.filepath)
+      File.delete(Email2Face.filepath)
+    else
+      File.new(Email2Face.filepath, "w") 
+    end
     File.open(Email2Face.filepath, "w") do |f|
       f.write(self.to_json)
     end

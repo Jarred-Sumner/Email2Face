@@ -43,8 +43,13 @@ Then, we pass in the email, with the Facebook account in a hash:
 
 ```ruby
 require 'email2face'
-Email2Face.face("the.email.i.use.to.sign.into.facebook@example.com", { :username => "my.fake.facebook@example.com", :password => "123456" })
+Email2Face.face("my.email@facebook.com")
 ```
+I've included a fake Facebook by default. However, it could be disabled at any time.
 
-You only need to pass in the fake Facebook the first time you run it. Afterwards, it'll store the account details.
+When you want to change the Facebook account, just run
 
+```ruby
+require 'email2face'
+Email2Face.face("my.email@facebook.com", { :username => "fb_account@example.com", :password => "fbpassword" })
+```
