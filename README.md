@@ -1,6 +1,6 @@
 # Email2Face
 
-Email2Face is a simple library for getting the person's face behind an email address. At [Lockitron](https://lockitron.com), we wanted people's faces to be alongside people's names on your locks. It's a lot easier to remember who someone is when you can see their face. But, that's difficult to implement when all you have is an email address and a name.
+Email2Face is a simple library for getting the person's face behind an email address. At [Lockitron](https://lockitron.com), we wanted faces next to names. It's a lot easier to remember who someone is when you can see their face. But, that's difficult to implement when all you have is an email address and a name.
 
 After thinking about it for awhile, we came up with a good solution. Facebook has lots of faces, so why not use that? But, Facebook does not open up their search API without every user explicitly permitting the search, even if it's publicly available. The solution then is to make Facebook think you're a person. That's what this does. Email2Face signs into Facebook, does a [search by email](https://facebook.com/srch.php), and gives you a link to the first result's profile picture.
 
