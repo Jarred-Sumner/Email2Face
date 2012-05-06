@@ -50,6 +50,7 @@ It's unlikely the included Facebook account will work for long. So, you may need
 #### With Ruby on Rails:
 
 1.Create a new file in `config/initializers` called `facebook.rb`
+
 2.Open that file in a text editor, and drop in the following:
 
 ```ruby
