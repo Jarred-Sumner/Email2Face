@@ -9,6 +9,7 @@ class Email2Face
   # This is why you should make a fake Facebook account.
   @@username = FAKE_FACEBOOK_USERNAME
   @@password = FAKE_FACEBOOK_PASSWORD
+  Email2Face.configure_capybara
 
   def self.username
     @@username
@@ -31,15 +32,14 @@ class Email2Face
       no_login_details(email)
     end
     html = face_html(email)
-    return get_face(html)
+    get_face(html)
   end
 
   def self.no_login_details(email)
-    puts "You didn't specify a Facebook account, so I set you up with a fake Facebook account that might not work."
+    puts "You didn't specify a Facebook account, so I set you up with the default fake Facebook account. It might not work for long."
   end
 
   def self.face_html(email)
-    configure_capybara
     Headless.ly do
       browser = Capybara::Session.new(:webkit, browser)
       #self.driver.header("User-Agent", CHROME_USER_AGENT)

@@ -2,7 +2,7 @@
 
 Email2Face is a simple library for getting the person's face behind an email address. At [Lockitron](https://lockitron.com), we wanted faces next to names. It's a lot easier to remember who someone is when you can see their face. But, that's difficult to implement when all you have is an email address and a name.
 
-After thinking about it for awhile, we came up with a good solution. Facebook has lots of faces, so why not use that? But, Facebook does not have an API for searching for profile pictures by email. So, we made one.
+After thinking about it for a few days, we came up with a good solution. Facebook has lots of faces, so why not use that? But, Facebook does not have an API for searching for profile pictures by email. So, we made one.
 
 ## Dependencies & Warnings
 
@@ -43,7 +43,7 @@ Then, we just give Email2Face the email we want a face for:
 
 ```ruby
 require 'email2face'
-Email2Face.face("my.email@facebook.com")
+Email2Face.face("jarred.sumner@facebook.com")
 ```
 
 ### Changing the Facebook Account
