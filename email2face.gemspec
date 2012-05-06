@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = "email2face"
-  s.version = "0.0.7"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jarred Sumner"]
   s.date = "2012-05-06"
-  s.description = "Email2Face is a simple library for getting the person's face behind an email address. At Lockitron, we wanted faces next to names. It's a lot easier to remember who someone is when you can see their face. But, that's difficult to implement when all you have is an email address and a name.\nAfter thinking about it for a few days, we came up with a good solution. Facebook has lots of faces, so why not use that? But, Facebook does not have an API for searching for profile pictures by email. So, we made one."
+  s.description = " Email2Face finds an email's corresponding Facebook profile, and then gives you a link to their profile picture. It requires a Facebook account to work. I highly recommend that you make a Facebook just for it. See http://github.com/jarred-sumner/email2face for more details. "
   s.email = "jarred@jarredsumner.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.23"
-  s.summary = "Email2Face is a little library for getting the person's face behind an email address."
+  s.summary = "You give email2face an email, and it gives you a link to their face"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
