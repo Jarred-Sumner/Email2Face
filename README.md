@@ -49,13 +49,12 @@ It's unlikely the included Facebook account will work for long. So, you may need
 
 #### With Ruby on Rails:
 
-* Create a new file in `config/initializers` called `facebook.rb`
-
-* Open that file in a text editor, and drop in the following:
+1.Create a new file in `config/initializers` called `facebook.rb`
+2.Open that file in a text editor, and drop in the following:
 
 ```ruby
-Email2Face.username = "FAKE_FACEBOOK_USERNAME"
-Email2Face.password = "FAKE_FACEBOOK_PASSWORD"
+Email2Face.username = "MY_FAKE_FACEBOOK_USERNAME"
+Email2Face.password = "MY_FAKE_FACEBOOK_PASSWORD"
 ```
 
 You'll need to restart your application server for it to have any affect.
