@@ -9,7 +9,7 @@ class Email2Face
   # This is why you should make a fake Facebook account.
   @@username = FAKE_FACEBOOK_USERNAME
   @@password = FAKE_FACEBOOK_PASSWORD
-  Email2Face.configure_capybara
+  
 
   def self.username
     @@username
@@ -40,6 +40,7 @@ class Email2Face
   end
 
   def self.face_html(email)
+    Email2Face.configure_capybara
     Headless.ly do
       browser = Capybara::Session.new(:webkit, browser)
       #self.driver.header("User-Agent", CHROME_USER_AGENT)
@@ -52,7 +53,7 @@ class Email2Face
       if browser.driver.cookies["c_user", ".facebook.com"]
         url = "https://www.facebook.com/search/results.php?o=2048&init=s%3Aemail&q=#{ email.sub("@", "%40") }"
         browser.visit url
-        return browser.html
+        browser.html
       else
         login_failed!
       end
@@ -70,10 +71,10 @@ class Email2Face
     uri       = URI.parse(href)
     uri.host  = "graph.facebook.com"
     uri.path  = uri.path + "/picture"
-    raise if uri.path.include?("profile.php")
+    raise if uri.path.include?("profile.php") || href == nil
     uri.to_s
   rescue
-    "I couldn't find a face for that email :("
+    "I couldn't find a face for that email :(. It's also possible that Facebook has asked for a security check on that account, which means that you should sign in and perform the security check."
   end
 
   def self.configure_capybara
