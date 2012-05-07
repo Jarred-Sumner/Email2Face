@@ -4,7 +4,7 @@ Email2Face is a simple library for getting the person's face behind an email add
 
 After thinking about it for a few days, we came up with a good solution. Facebook has lots of faces, so why not use that? But, Facebook does not have an API for searching for profile pictures by email. So, we made one.
 
-## Dependencies & Warnings
+## Dependencies
 
 It needs a Facebook account to work. I *do not* recommend using your own Facebook because I'm not sure if this plays well with Facebook's TOS. So, make a fake Facebook for it. I've included a default one, but it'll probably be banned by the time you get to it.
 
