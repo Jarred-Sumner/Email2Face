@@ -53,7 +53,7 @@ class Email2Face
       if browser.driver.cookies["c_user", ".facebook.com"]
         url = "https://www.facebook.com/search/results.php?o=2048&init=s%3Aemail&q=#{ email.sub("@", "%40") }"
         browser.visit url
-        browser.html
+        return browser.html
       else
         login_failed!
       end
