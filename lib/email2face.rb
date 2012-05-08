@@ -66,7 +66,7 @@ class Email2Face
 
   def self.get_face(html)
     parser    = Nokogiri::HTML(html)
-    element   = parser.xpath("//*[@id='pagelet_search_results_objects']/div/div/div/div/div[2]/div[1]/a") || parser.xpath('//*[@id="js_0"]')
+    element   = parser.xpath("//*[@id='pagelet_search_results_objects']/div/div/div/div/div[2]/div[1]/a") || parser.xpath('//*[@id="js_0"]') || //*[@id="js_1"]
     href      = element.attribute("href")
     uri       = URI.parse(href)
     uri.host  = "graph.facebook.com"
