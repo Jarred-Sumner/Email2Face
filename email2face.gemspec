@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "email2face"
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jarred Sumner"]
-  s.date = "2012-05-07"
+  s.date = "2012-05-08"
   s.description = " Email2Face finds an email's corresponding Facebook profile, and then gives you a link to their profile picture. It requires a Facebook account to work. I highly recommend that you make a Facebook just for it. See http://github.com/jarred-sumner/email2face for more details. "
   s.email = "jarred@jarredsumner.com"
   s.extra_rdoc_files = [
